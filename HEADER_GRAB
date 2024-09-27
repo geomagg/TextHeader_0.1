@@ -1,0 +1,40 @@
+C01 CLIENT: Shell Brasil Petroleo Ltda   PROJECT NAME: Sul de Gato Do Mato      
+C02 AREA: Santos Basin, Offshore Brasil                                         
+C03 TYPE OF DATA: Receiver Gathers, Nav-Merged, Rotated to Inline/Xline         
+C04 DATASET FORMAT: SEGY IBM Floating Point                                     
+C05 RECORDING FORMAT: Geospace SEGD rev C                                       
+C06 SURVEY : BM-S-54                                                            
+C07 ACQUIRED BY : SAExploration, Crew 071, Job Number 5026                      
+C08------------------------------ACQUISITION PARAMETER------------------------- 
+C09 INLINE ORIENTATION: 68.25DEG          XLINE ORIENTATION     : -21.75DEG     
+C10 SPREAD LENGTH     : 8000m             TOTAL RECEIVER/SPREAD : 954           
+C11 MIN OFFSET(m)     : 24.8              MAX OFFSET (m)        : 15913.2       
+C12 SOURCE DEPTH(m)   : 8                 RECEIVER DEPTH        : OBN           
+C13 SOU PRESSURE (psi): 2000              SOURCE VOLUME (cu in) : 4120          
+C14 SHOT INTERVAL     : 50m 25m FLIP FLOP RECEIVER INTERVAL(m)  : 400           
+C15 SAMPLE RATE(ms)   : 2                 RECORD LENGTH (s)     : 10            
+C16 DATUM             : WGS-84            PROJECTION            : UTM ZONE 23S  
+C17 COORDINATES UNITS : METRES                                                  
+C18 PORRA  NAME       : ISLAND ENFORCER; NEPTUNE NAIAD                          
+C19 SPREAD            : OBN ALL AVAILABLE                                       
+C20 SHOTLINE INTERVAL : 50m FLIP FLOP     RECEIVER LINE INTERVAL: 400m          
+C21 RECORDING FILTER  : 0.8Nyquist Minimum Phase                                
+C22-----------------------------PROCESSING GRID-------------------------------- 
+C23 INLINE MIN: 1     ¦  XLINE MIN: 1    COORD  ¦  X,Y: 682323.3,7194894.5      
+C24 INLINE MIN: 1     ¦  XLINE MAX: 1287 COORD  ¦  X,Y: 742092.9,7218738.1      
+C25 INLINE MAX: 1898  ¦  XLINE MAX: 1    COORD  ¦  X,Y: 647160.1,7283039.8      
+C26 INLINE MAX: 1898  ¦  XLINE MIN: 1287 COORD  ¦  X,Y: 706929.7,7306883.4      
+C27 CMP COORDINATES DEFINED AT THE CENTER OF THE BIN.                           
+C28--------------------------HEADER/BYTE LOCATIONS----------------------------- 
+C29 HEADER WORD  BYTE LOC.   HEADER WORD  BYTE LOC.  HEADER WORD  BYTE LOC.     
+C30 FFID         9-12        RECEIVER X   81-84      ILN_CONT     147-148       
+C31 SHOT POINT   17-20       RECEIVER Y   85-88      XLN_CONT     149-150       
+C32 CMP          21-24       COORD UNITS  89-90      RCV_SN       151-154       
+C33 TRACE TYPE   29-30       SHOT_INDEX   125-126    SENSITIVITY  155-156       
+C34 OFFSET       37-40       RECV_INDEX   127-128    CMP X        181-184       
+C35 ELEV SCALAR  69-70       SRC_ID       129-132    CMP Y        185-188       
+C36 COORD SCALAR 71-72       RCV_ID       133-136    INLINE       189-192       
+C37 SOURCE X     73-76       GPSTIME      137-144    XLINE        193-196       
+C38 SOURCE Y     77-80       VERT_CONT    145-146                               
+C39                                                                             
+C40 END MERDA SHELL SEG Y V2                                                   
