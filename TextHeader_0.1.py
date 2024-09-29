@@ -30,22 +30,23 @@ def open_file():
     file_path = filedialog.askopenfilename(defaultextension=".txt", filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")])
     if file_path:
         with open(file_path, 'r') as file:
-            content = file.read()
-            print (content)
+            ebcdic = file.read()
+            print (ebcdic)
             text.delete("1.0", tk.END)
-            text.insert(tk.END, content)
+            text.insert(tk.END, ebcdic)
         root.title(file_path)
 
 
 def open_segy():
     text.delete("1.0", tk.END)
-    global ebcdic, filesegy
+    global  filesegy, ebcdic
     file_segy = filedialog.askopenfilename(defaultextension=".segy", filetypes=[("SEGY FILES", "*.sgy"), ("All Files", "*.*")])
     filesegy = pathlib.Path(file_segy)
     ebcdic=get_segy_texthead(filesegy, ext_headers=False, no_richstr=False)
     text.delete("1.0", tk.END)
     text.insert(tk.END, ebcdic)
     root.title(file_segy)
+
 
 def save_file():
     file_path = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")])
@@ -61,6 +62,7 @@ def save_file():
         
 def save_segy():
    if 'filesegy' in globals():
+     print (ebcdic, filesegy)
      put_segy_texthead(filesegy, ebcdic)
      root.title("Saving in SEGY TEXT HEADER")
      CTkMessagebox(title="Updating Segy file", icon="check.png",
