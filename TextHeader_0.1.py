@@ -62,8 +62,8 @@ def save_file():
         
 def save_segy():
    if 'filesegy' in globals():
-     print (ebcdic, filesegy)
-     put_segy_texthead(filesegy, ebcdic)
+     content = text.get("1.0", tk.END)
+     put_segy_texthead(filesegy, content)
      root.title("Saving in SEGY TEXT HEADER")
      CTkMessagebox(title="Updating Segy file", icon="check.png",
                   message="Saved Header into Segy File")
