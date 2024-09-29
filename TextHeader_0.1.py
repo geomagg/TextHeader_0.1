@@ -15,6 +15,12 @@ import pathlib
 root = tk.Tk()
 root.title("SEGY TEXT HEADER EDITOR")
 
+
+def show_error():
+    # Show some error message
+    CTkMessagebox(title="Error", message="SEGY FILE NOT read!!!", icon="cancel")
+
+
 def new_file():
     text.delete("1.0", tk.END)
     root.title("SEGY Header Manipulation")
@@ -25,6 +31,7 @@ def open_file():
     if file_path:
         with open(file_path, 'r') as file:
             content = file.read()
+            print (content)
             text.delete("1.0", tk.END)
             text.insert(tk.END, content)
         root.title(file_path)
@@ -53,12 +60,15 @@ def save_file():
 
         
 def save_segy():
-    CTkMessagebox(title="Saving pad into Segy file header", icon="check.png",
-                  message="Are yiu sure?:")
-    print ("PORAAAAAAAA")
-    put_segy_texthead(filesegy, ebcdic)
+   if 'filesegy' in globals():
+     put_segy_texthead(filesegy, ebcdic)
+     root.title("Saving in SEGY TEXT HEADER")
+     CTkMessagebox(title="Updating Segy file", icon="check.png",
+                  message="Saved Header into Segy File")
+     text.delete("1.0", tk.END)
 
-    root.title("Saving in SEGY TEXT HEADER")
+   else:
+     show_error()
 
 def clean():
     text.delete("1.0", tk.END)
