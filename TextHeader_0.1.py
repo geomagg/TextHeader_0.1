@@ -5,6 +5,8 @@ from segysak.segy import get_segy_texthead
 from segysak.segy import create_default_texthead
 from segysak.segy import put_segy_texthead
 from segysak.segy import get_segy_texthead
+from segysak.segy import segy_bin_scrape
+
 
 from CTkMessagebox import CTkMessagebox
 
@@ -76,6 +78,28 @@ def clean():
     text.delete("1.0", tk.END)
 
 
+def scrapebinary():
+   binheader = segy_bin_scrape(filesegy)
+   text.delete("1.0", tk.END)
+   text.insert(tk.END, binheader)
+
+#   print (binheader.items())
+#   print (binheader.keys())
+
+   b = list(binheader) 
+   print ("number of elements", len(b))
+
+   binheader["JobID"]=1000
+   binheader["ReelNumber"]=9999
+
+   text.insert(tk.END, binheader["JobId"])
+
+   print ("JobID = ",binheader["JobID"])
+   print ("LineNumber = ",binheader["LineNumber"])
+   print ("ReelNumber = ",binheader["ReelNumber"])
+   print ("Traces = ",binheader["Traces"])
+   print ("AuxTraces =",binheader["AuxTraces"])
+
 text = tk.Text(root, wrap="word", undo=True)
 text.pack(expand="yes", fill="both")
 
@@ -96,6 +120,7 @@ file_menu.add_command(label="Exit", command=root.destroy)
 
 file_menu1 = tk.Menu(menu_bar, tearoff=0)
 menu_bar.add_cascade(label="BINARY HEADER", menu=file_menu1)
+file_menu1.add_command(label="Extract Binary from segy file", command=scrapebinary)
 #file_menu1.add_command(label="Open", command=open_file)
 #file_menu1.add_command(label="Save", command=save_file)
 
