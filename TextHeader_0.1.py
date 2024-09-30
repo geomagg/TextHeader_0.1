@@ -10,7 +10,6 @@ from segysak.segy import segy_bin_scrape
 
 from CTkMessagebox import CTkMessagebox
 
-#from parse_text_header import parse_text_header  
 import matplotlib.pyplot as plt
 import pathlib
 
@@ -80,25 +79,12 @@ def clean():
 
 def scrapebinary():
    binheader = segy_bin_scrape(filesegy)
-   text.delete("1.0", tk.END)
-   text.insert(tk.END, binheader)
+   
+   clean()
+   for key, value in binheader.items():
+     #print(f"{key}: {value}")
+    text.insert(tk.END, str(f"{key}: {value}") + '\n')
 
-#   print (binheader.items())
-#   print (binheader.keys())
-
-   b = list(binheader) 
-   print ("number of elements", len(b))
-
-   binheader["JobID"]=1000
-   binheader["ReelNumber"]=9999
-
-   text.insert(tk.END, binheader["JobId"])
-
-   print ("JobID = ",binheader["JobID"])
-   print ("LineNumber = ",binheader["LineNumber"])
-   print ("ReelNumber = ",binheader["ReelNumber"])
-   print ("Traces = ",binheader["Traces"])
-   print ("AuxTraces =",binheader["AuxTraces"])
 
 text = tk.Text(root, wrap="word", undo=True)
 text.pack(expand="yes", fill="both")
@@ -121,6 +107,9 @@ file_menu.add_command(label="Exit", command=root.destroy)
 file_menu1 = tk.Menu(menu_bar, tearoff=0)
 menu_bar.add_cascade(label="BINARY HEADER", menu=file_menu1)
 file_menu1.add_command(label="Extract Binary from segy file", command=scrapebinary)
+#file_menu1.add_command(label="List Header values", command=binlist)
+file_menu1.add_separator()
+file_menu1.add_command(label="Clear pad", command=clean)
 #file_menu1.add_command(label="Open", command=open_file)
 #file_menu1.add_command(label="Save", command=save_file)
 
